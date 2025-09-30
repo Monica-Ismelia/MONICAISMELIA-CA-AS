@@ -1,0 +1,46 @@
+POST http://localhost:3000/juego
+Content-Type: application/json
+{
+    "id": 3,
+    "nombre": "FIFA 23",
+    "genero": "Deportes",
+    "idPlataforma": 1,
+    "precio": 59.99,
+    "fechaLanzamiento": "2022-09-27"
+}
+
+POST http://localhost:3000/juego/some
+Content-Type: application/json
+[
+    {
+        "id": 4,
+        "nombre": "The Legend of Zelda: Breath of the Wild",
+        "genero": "Aventura",
+        "idPlataforma": 2,
+        "precio": 59.99,
+        "fechaLanzamiento": "2017-03-03"
+    },
+    {
+        "id": 5,
+        "nombre": "God of War",
+        "genero": "Acción",
+        "idPlataforma": 3,
+        "precio": 49.99,
+        "fechaLanzamiento": "2018-04-20"
+    }
+]
+
+PATCH http://localhost:3000/juego/update-name
+Content-Type: application/json
+
+{
+    "id": 3,
+    "nombre": "FIFA 23 Ultimate Edition"
+}
+
+PATCH http://localhost:3000/juego/3?precio=49.99&genero=Deportes, Simulación
+
+
+GET http://localhost:3000/juego/search?nombre=FIFA 23 Ultimate Edition&genero=Deportes, Simulación&precioMin=30&precioMax=60
+
+GET http://localhost:3000/juego?precioMax=60.00
