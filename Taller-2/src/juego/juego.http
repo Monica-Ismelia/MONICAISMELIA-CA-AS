@@ -43,4 +43,4 @@ PATCH http://localhost:3000/juego/3?precio=49.99&genero=Deportes, Simulación
 
 GET http://localhost:3000/juego/search?nombre=FIFA 23 Ultimate Edition&genero=Deportes, Simulación&precioMin=30&precioMax=60
 
-GET http://localhost:3000/juego?precioMax=60.00
+GET http://localhost:3000/juego?precioMax=80

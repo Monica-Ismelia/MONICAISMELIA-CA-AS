@@ -1,13 +1,17 @@
 import { Controller, Post, Body, Query, Patch, Param, Get, ParseFloatPipe } from '@nestjs/common';
+import { JuegoService } from './juego.service';
 
 @Controller('juego')
 export class JuegoController {
+  constructor(private readonly juegoService: JuegoService) {}
 
 /* <----VERBO POST ----> */
 @Post()
 createGame(@Body() data: any) {
-        return { message: 'Juego creado', data: data };
-}
+  return { message: 'Juego creado', data: data };
+} 
+
+
 
 @Post('some')
 createSome(@Body() data: any[]) {
@@ -25,7 +29,7 @@ updateJuego(
 @Param('id') id: string,
 @Query() query: { precio?: number; genero?: string }
 ) {
-    return { message: 'Juego actualizado', id, cambios: query };
+  return { message: 'Juego actualizado', id, cambios: query };
 }
 
 /* <----VERBO GET ----> */
@@ -35,19 +39,10 @@ searchGames(@Query('nombre') nombre: string) {
 
 }
 @Get()
-findAllGames(@Query('precioMax', ParseFloatPipe) precioMax?: number) {
-  const list = [
-    { id: 1, nombre: 'Zelda', precio: 60 },
-    { id: 2, nombre: 'Cyberpunk', precio: 70 },
-    { id: 3, nombre: 'Mario', precio: 50 },
-  ];
-
-  let filters = list;
-
-  if (precioMax !== undefined) {
-    filters = filters.filter((juego) => juego.precio <= precioMax);
+findAll(@Query('precioMax', ParseFloatPipe) precioMax?: number) {
+  return {
+    message: 'Lista de juegos',
+    data: this.juegoService.findAll(precioMax),
   }
-
-  return { message: 'Listado de todos los juegos', data: filters };
 }
 }
