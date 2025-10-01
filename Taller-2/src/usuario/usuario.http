@@ -2,7 +2,7 @@ PUT http://localhost:3000/usuario/1
 Content-Type: application/json
 
 {
-    "nombre": "Juan Gomez",
+    "nombre": "Juan Gomez Daza",
     "edad": 30,
     "email": "juan@example.com"
 }

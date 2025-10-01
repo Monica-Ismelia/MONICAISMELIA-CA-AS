@@ -5,7 +5,7 @@ Content-Type: application/json
     "nombre": "FIFA 23",
     "genero": "Deportes",
     "idPlataforma": 1,
-    "precio": 59.99,
+    "precio": 59,
     "fechaLanzamiento": "2022-09-27"
 }
 

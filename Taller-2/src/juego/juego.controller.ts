@@ -1,5 +1,6 @@
-import { Controller, Post, Body, Query, Patch, Param, Get, ParseFloatPipe } from '@nestjs/common';
+import { Controller, Post, Body, Query, Patch, Param, ValidationPipe, Get, ParseFloatPipe, ParseIntPipe, UsePipes } from '@nestjs/common';
 import { JuegoService } from './juego.service';
+import { CreateJuegoDto } from './create-juego.dto';
 
 @Controller('juego')
 export class JuegoController {
@@ -7,8 +8,9 @@ export class JuegoController {
 
 /* <----VERBO POST ----> */
 @Post()
-createGame(@Body() data: any) {
-  return { message: 'Juego creado', data: data };
+@UsePipes(new ValidationPipe({transform: true }))
+createGame(@Body() data: CreateJuegoDto) {
+  return { message: 'Juego creado', data };
 } 
 
 
@@ -26,10 +28,11 @@ updateName(@Body() body: { id: number; nombre: string }) {
 
 @Patch(':id')
 updateJuego(
-@Param('id') id: string,
-@Query() query: { precio?: number; genero?: string }
+@Param('id', ParseIntPipe) id: number,
+@Query('precio', ParseFloatPipe) precio?: number,
+@Query('genero') genero?: string
 ) {
-  return { message: 'Juego actualizado', id, cambios: query };
+  return { message: 'Juego actualizado', id, cambios: { precio, genero } };
 }
 
 /* <----VERBO GET ----> */
