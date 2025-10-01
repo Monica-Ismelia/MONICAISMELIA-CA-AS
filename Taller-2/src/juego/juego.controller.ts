@@ -1,6 +1,6 @@
 import { Controller, Post, Body, Query, Patch, Param, ValidationPipe, Get, ParseFloatPipe, ParseIntPipe, UsePipes } from '@nestjs/common';
 import { JuegoService } from './juego.service';
-import { CreateJuegoDto } from './create-juego.dto';
+import { CreateJuegoDto } from './dtos/create-juego.dto';
 
 @Controller('juego')
 export class JuegoController {

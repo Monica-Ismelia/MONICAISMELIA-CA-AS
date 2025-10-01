@@ -1,5 +1,5 @@
 import { Controller, Put, Param, Body, Delete, ParseIntPipe} from '@nestjs/common';
-import { DeleteManyDto, UsuarioDto } from './create-update.dto';
+import { DeleteManyDto, UsuarioDto } from './dtos/create-update.dto';
 
 @Controller('usuario')
 export class UsuarioController {
