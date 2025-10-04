@@ -16,23 +16,29 @@ export class DesarrolladorController {
 
   // ─── VERBO 1: GET ───────────────────────────────────────
 
-  // Ruta 1: GET /desarrolladores → listar todos
+  // Ruta 1: GET /desarrolladores → Array de todos los desarrolladores
+  // http://localhost:3000/desarrolladores
   @Get()
   findAll() {
     return this.desarrolladorService.findAll();
   }
 
   // Ruta 2: GET /desarrolladores/:id/juegos → ver juegos de un desarrollador
+  // http://localhost:3000/desarrolladores/1/juegos, si id=1
+  // Devuelve los juegos asociados al desarrollador con el ID dado
   @Get(':id/juegos')
   getJuegos(
     @Param('id', ParseIntPipe) id: number
   ) {
-    return this.desarrolladorService.getJuegos(id);
+    return this.desarrolladorService.getJuegos(id); 
   }
 
   // ─── VERBO 2: PUT ───────────────────────────────────────
 
   // Ruta 3: PUT /desarrolladores/:id → actualizar desarrollador completo
+  // http://localhost:3000/desarrolladores/1, si id=1
+  // El cuerpo debe ser un JSON con todas las propiedades
+  // Actualiza todas las propiedades del desarrollador
   @Put(':id')
   update(
     @Param('id', ParseIntPipe) id: number,
@@ -42,6 +48,8 @@ export class DesarrolladorController {
   }
 
   // Ruta 4: PUT /desarrolladores/:id/pais → actualizar solo el país
+  // http://localhost:3000/desarrolladores/1/pais, si id=1
+  // Actualiza solo la propiedad "pais" del desarrollador
   @Put(':id/pais')
   updatePais(
     @Param('id', ParseIntPipe) id: number,

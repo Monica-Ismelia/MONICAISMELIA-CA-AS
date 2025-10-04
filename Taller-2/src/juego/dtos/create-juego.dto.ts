@@ -5,11 +5,13 @@ import { IsInt, Length, Min, IsString,IsNumber } from "class-validator";
 export class CreateJuegoDto {
 
     // Nombre del juego: texto de 3 a 50 caracteres
+    //
     @IsString()
     @Length(3, 50)
     nombre: string;
 
     // Género del juego: texto (ej: "Acción", "RPG")
+    // Cadena simple, sin validaciones complejas
     @IsString()
     genero: string;
 
