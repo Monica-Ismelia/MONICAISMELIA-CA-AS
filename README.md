@@ -10,7 +10,7 @@ API REST en **NestJS** que modela un sistema de videojuegos con 4 entidades.
 ## 👩‍💻 Trabajo  en  Equipo
 
 * Mónica Ismelia Cañas Reyes 
-* Natalia Molina Cabal 
+* Angie Natalia Molina Cabal 
 
 ## 📊 Cumplimiento de requisitos
 - ✅ **4 entidades** modeladas
