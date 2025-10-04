@@ -1,11 +1,13 @@
 ### 1. Listar todos los desarrolladores
 GET http://localhost:3000/desarrolladores
 
-### 2. Ver juegos de un desarrollador (ID=1)
-GET http://localhost:3000/desarrolladores/1/juegos
+### 2. Ver juegos de un desarrollador (ID=2)
+GET http://localhost:3000/desarrolladores/2/juegos
+
+
 
 ### 3. Actualizar desarrollador completo
-PUT http://localhost:3000/desarrolladores/1
+PUT http://localhost:3000/desarrolladores/2
 Content-Type: application/json
 
 {

@@ -4,6 +4,7 @@ import { JuegoService } from './juego.service';
 
 @Module({
   controllers: [JuegoController],
-  providers: [JuegoService]
+  providers: [JuegoService],
+  exports: [JuegoService], // Exportamos JuegoService para que otros módulos lo puedan usar
 })
 export class JuegoModule {}
