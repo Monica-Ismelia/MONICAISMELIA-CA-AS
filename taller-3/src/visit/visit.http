@@ -1,0 +1,34 @@
+### Crear una cita
+POST http://localhost:3000/visit
+Content-Type: application/json
+
+{
+  "date": "2025-10-13T10:30:00Z",
+  "reason": "Vacunación anual"
+}
+
+###
+
+### Obtener todas las citas
+GET http://localhost:3000/visit
+
+###
+
+### Obtener una cita por ID
+GET http://localhost:3000/visit/1
+
+###
+
+### Actualizar una cita
+PUT http://localhost:3000/visit/1
+Content-Type: application/json
+
+{
+  "reason": "Chequeo general",
+  "date": "2025-10-15T09:00:00Z"
+}
+
+###
+
+### Eliminar una cita
+DELETE http://localhost:3000/visit/1
