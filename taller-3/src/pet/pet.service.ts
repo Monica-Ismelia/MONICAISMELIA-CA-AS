@@ -22,7 +22,7 @@ export class PetService {
   }
 
   async findOne(id: number): Promise<Pet> {
-    const pet = await this.petRepository.findOneBy({ id });
+    const pet = await this.petRepository.findOneBy({ Id_pet: id });
     if (!pet) {
       throw new NotFoundException(`Pet with ID ${id} not found`);
     }

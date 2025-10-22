@@ -33,10 +33,10 @@ export class UserService {
   }
 
   // Buscar un usuario por ID
-  async findOne(id: number): Promise<User> {
-    const user = await this.userRepository.findOneBy({ id });
+  async findOne(Id_users: number): Promise<User> {
+    const user = await this.userRepository.findOneBy({ Id_users});
     if (!user) {
-      throw new NotFoundException(`No se encontró el usuario con ID ${id}`);
+      throw new NotFoundException(`No se encontró el usuario con ID ${Id_users}`);
     }
     return user;
   }

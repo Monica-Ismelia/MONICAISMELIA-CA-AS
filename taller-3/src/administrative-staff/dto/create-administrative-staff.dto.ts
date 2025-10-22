@@ -5,10 +5,10 @@ export class CreateAdministrativeStaffDto {
   userId: number;
 
   @IsString()
-  identification: string;
+  identification: string; 
 
   @IsString()
-  phone?: string;
+  phone: string;
 
   @IsString()
   startDate: string; // formato: "YYYY-MM-DD"

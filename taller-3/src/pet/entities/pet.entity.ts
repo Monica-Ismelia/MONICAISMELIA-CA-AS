@@ -1,9 +1,12 @@
-import{ Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn } from 'typeorm';
+import { Appointment } from '../../appointment/entities/appointment.entity';
+import { ClientOwner } from '../../client-owner/entities/client-owner.entity';
+import { MedicalHistory } from '../../medical-history/entities/medical-history.entity';
+import{ Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, ManyToOne, JoinColumn, OneToMany, OneToOne } from 'typeorm';
 
 @Entity('pets')
 export class Pet {
   @PrimaryGeneratedColumn()
-  id: number;
+  Id_pet: number;
 
   @Column()
   name: string;
@@ -24,7 +27,19 @@ export class Pet {
   observations: string;
 
   @Column()
-  clientId: number;
+  Id_client: number;
+
+  @ManyToOne(()=>ClientOwner, (clientOwner)=> clientOwner.pets)
+  @JoinColumn({name: 'Id_client', 
+    referencedColumnName: 'Id_client'
+  })
+  client: ClientOwner;
+
+  @OneToMany(()=> Appointment, (appointment)=>appointment.pet )
+  appointments: Appointment[];
+
+  @OneToOne(()=> MedicalHistory, (medicalHistory)=>medicalHistory.pet)
+  medicalHistory: MedicalHistory;
 
   @CreateDateColumn({ name: 'created_at' })
   createdAt: Date;

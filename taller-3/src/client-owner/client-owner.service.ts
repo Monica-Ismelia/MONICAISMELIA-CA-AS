@@ -22,7 +22,7 @@ export class ClientOwnerService {
   }
 
   async findOne(id: number): Promise<ClientOwner> {
-    const clientOwner = await this.clientOwnerRepository.findOneBy({ clientId: id });
+    const clientOwner = await this.clientOwnerRepository.findOneBy({ Id_client: id });
     if (!clientOwner) {
       throw new NotFoundException(`Client owner with ID ${id} not found`);
     }
