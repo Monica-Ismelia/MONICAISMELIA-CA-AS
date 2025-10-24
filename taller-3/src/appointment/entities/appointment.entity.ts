@@ -4,6 +4,7 @@ import { Bill } from '../../bill/entity/bill.entity';
 import { Pet } from '../../pet/entities/pet.entity';
 import { User } from '../../user/entities/user.entity';
 import { MedicalHistory } from '../../medical-history/entities/medical-history.entity';
+import { ProductService } from '../../producto-servicio/entity/product-service.entity';
 
 @Entity('appointments')
 export class Appointment {
@@ -29,6 +30,9 @@ export class Appointment {
     name: 'status'
   })
   status: AppointmentStatus;
+
+  @Column({type: 'varchar', length: 255})
+  detail_type: string;
 
   @CreateDateColumn({ name: 'created_at' })
   createdAt: Date;
@@ -66,5 +70,14 @@ export class Appointment {
 
   @OneToMany(()=>MedicalHistory, (medicalhistory)=>medicalhistory.appointment)
   medicalHistory: MedicalHistory[];
+
+  @Column()
+  Id_product_service: number;
+
+  @ManyToOne(()=>ProductService, (productservice)=>productservice.appointments)
+  @JoinColumn({name: 'Id_product_service',
+    referencedColumnName: 'Id_product_service'
+  })
+  productservice: ProductService;
 
 }

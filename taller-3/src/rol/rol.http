@@ -1,0 +1,7 @@
+POST http://localhost:3000/rol
+Content-Type: application/json
+{
+    "rol_nombre": "Administrador"
+}
+
+GET  http://localhost:3000/rol

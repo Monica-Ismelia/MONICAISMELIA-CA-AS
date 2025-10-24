@@ -1,6 +1,7 @@
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 import { ProductoServiceType } from "../enum/productserviceType";
 import { DetaBill } from "../../detabill/entities/detabill.entity";
+import { Appointment } from "../../appointment/entities/appointment.entity";
 
 @Entity ('product-service')
 export class ProductService{
@@ -24,5 +25,9 @@ export class ProductService{
 
     @OneToMany(()=> DetaBill, (detabill)=>detabill.productservice)
     detabill: DetaBill[];
+
+
+    @OneToMany(()=>Appointment, (appointment)=>appointment.productservice) 
+    appointments: Appointment[];
 
 }

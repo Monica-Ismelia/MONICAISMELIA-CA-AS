@@ -3,11 +3,11 @@ POST http://localhost:3000/users
 Content-Type: application/json
 
 {
-  "firstName": "Maria",
-  "lastName": "Gómez",
-  "email": "maria@example.com",
+  "firstName": "Emilhy",
+  "lastName": "Ariza",
+  "email": "emily@gmail.com",
   "password": "1234321",
-  "roleId": 5
+  "Id_rol": 2
 }
 
 
@@ -15,7 +15,7 @@ Content-Type: application/json
 GET http://localhost:3000/users
 
 ### 🟢 Obtener un usuario por ID
-GET http://localhost:3000/users/1
+GET http://localhost:3000/users/7
 
 ### 🔵 Actualizar un usuario existente
 PUT http://localhost:3000/users/1
@@ -26,7 +26,7 @@ Content-Type: application/json
   "lastName": "Gómez",
   "email": "ana@example.com",
   "password": "123456",
-  "roleId": 1
+  "Id_rol": 8
 }
 
 ### 🔴 Eliminar un usuario existente

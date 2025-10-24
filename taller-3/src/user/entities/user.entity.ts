@@ -1,9 +1,10 @@
 // src/user/entities/user.entity.ts
-import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, OneToOne, ManyToMany, OneToMany } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, OneToOne, ManyToMany, OneToMany, ManyToOne, JoinColumn } from 'typeorm';
 import { AdministrativeStaff } from '../../administrative-staff/entities/administrative-staff.entity';
 import { MedicalHistory } from '../../medical-history/entities/medical-history.entity';
 import { Appointment } from '../../appointment/entities/appointment.entity';
 import { MedicalStaff } from '../../medical-staff/entities/medical-staff.entity';
+import { Rol } from '../../rol/entities/rol_entities.entity';
 
 @Entity('users')
 export class User {
@@ -22,8 +23,8 @@ export class User {
   @Column()
   password: string;
 
-  @Column()
-  ID_rol: number;
+  @Column({name: 'Id_rol'})
+  Id_rol: number;
 
   @CreateDateColumn({ name: 'created_at' })
   createdAt: Date;
@@ -42,4 +43,11 @@ export class User {
 
   @OneToMany(()=>Appointment, (appointment)=>appointment.user)
   appointments: Appointment[];
+
+
+  @ManyToOne (() => Rol, (rol) => rol.users)
+  @JoinColumn ({name: 'Id_rol',
+      referencedColumnName: 'Id_rol', 
+  })
+  rol: Rol;
 }

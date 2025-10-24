@@ -1,0 +1,9 @@
+POST http://localhost:3000/medical-staff
+Content-Type: application/json
+{
+    "identification": "12335556",
+    "phone": "3114566988",
+    "Id_specialty":9,
+    "Id_users": 7
+}
+
