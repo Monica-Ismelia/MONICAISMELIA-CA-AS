@@ -1,3 +1,4 @@
+import { IsPhoneNumber, IsString } from "class-validator";
 import { Specialty } from "../../specialty/entities/specialty.entity";
 import { User } from "../../user/entities/user.entity";
 import { Column, Entity, JoinColumn, ManyToOne, OneToOne, PrimaryColumn} from "typeorm";
@@ -13,6 +14,8 @@ export class MedicalStaff{
     identification: string;
 
     @Column()
+    @IsString()
+    @IsPhoneNumber()
     phone: string;
 
     @Column()

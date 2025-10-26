@@ -1,14 +1,17 @@
-import { IsNumber, IsOptional, IsPhoneNumber, Length } from "class-validator";
+import { Type } from "class-transformer";
+import { IsInt, IsNumber, IsOptional, IsPhoneNumber, IsString, Length } from "class-validator";
 
 export class updateMedicoDto{
     @IsOptional()
+    @IsString()
     @IsPhoneNumber ('CO')
     @Length(1, 15)
     phone?: string;
 
 
     @IsOptional()
-    @IsNumber()
+    @IsInt()
+    @Type(()=> Number)
     Id_speciality?: number;
 
 }

@@ -1,28 +1,37 @@
 ### 🟡 Crear una nueva cita
-POST http://localhost:3000/appointment
+POST http://localhost:3000/appointments
 Content-Type: application/json
-
+//tener en cuenta la lista de producto_servicio, tabla productservice
+//tener en cuenta la lista de mascotas, tabla pet
+//tener en cuenta la lista de usuarios, tabla users
 {
   "date": "2025-10-20",
   "time": "10:00",
-  "reason": "Chequeo general",
+  "reason": "Medicina general",
   "value": 50000,
-  "userId": 1,
-  "petId": 1
+  "Id_users": 10, 
+  "Id_pet": 3,
+
+  "Id_product_service": 7, 
+  "detail_type": "Baño"
 }
 ### 🟢 Obtener todas las citas
-GET http://localhost:3000/appointment   
+GET http://localhost:3000/appointments   
 
 ### 🟢 Obtener una cita por ID
-GET http://localhost:3000/appointment/1 
+GET http://localhost:3000/appointments/1 
 
 ### 🔵 Actualizar una cita existente
-PUT http://localhost:3000/appointment/1
+PUT http://localhost:3000/appointments/8
 Content-Type: application/json
 
 {
-  "reason": "Chequeo general",
-  "value": 90000
+  "detail_type": "Baño antipulgas",
+  "status": "REALIZADA"
 }
+
+//saber cuantas citas corresponden al  ID DEL USUARIO 
+GET http://localhost:3000/appointments?/Id_users=10
+
 ### 🔴 Eliminar una cita existente
-DELETE http://localhost:3000/appointment/1
+DELETE http://localhost:3000/appointments/10

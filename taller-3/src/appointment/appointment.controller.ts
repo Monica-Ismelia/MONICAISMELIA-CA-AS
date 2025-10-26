@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Param, Put, Delete, ParseIntPipe } from '@nestjs/common';
+import { Controller, Get, Post, Body, Param, Put, Delete, ParseIntPipe, Query } from '@nestjs/common';
 import { AppointmentService } from './appointment.service';
 import { CreateAppointmentDto } from './dto/create-appointment.dto';
 import { UpdateAppointmentDto } from './dto/update-appointment.dto';
@@ -25,6 +25,12 @@ export class AppointmentController {
   @Put(':id')
   update(@Param('id', ParseIntPipe) id: number, @Body() updateDto: UpdateAppointmentDto) {
     return this.appointmentService.update(id, updateDto);
+  }
+
+    //QUE CITAS TIENE EL MEDICO
+  @Get()
+  findMedico(@Query('Id_users')Id_users: string){
+      return this.appointmentService.findMedico(Id_users);
   }
 
   @Delete(':id')

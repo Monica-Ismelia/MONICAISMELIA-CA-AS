@@ -37,7 +37,7 @@ export class ClientOwnerService {
   async remove(id: number): Promise<void> {
     const result = await this.clientOwnerRepository.delete(id);
     if (result.affected === 0) {
-      throw new NotFoundException(`Client owner with ID ${id} not found`);
+      throw new NotFoundException(`Client con el ${id} no encontrado`);
     }
   }
 }

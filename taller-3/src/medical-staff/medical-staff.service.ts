@@ -21,9 +21,8 @@ export class MedicalStaffService {
     }
 
     //Listar medicos
-
     async findAll (): Promise<MedicalStaff[]>{
-        return  this.medicalRepository.find({relations: ['especialidad', 'usuario']});
+        return  this.medicalRepository.find({relations: ['specialty', 'users']});
 
     }
 
@@ -40,4 +39,19 @@ export class MedicalStaffService {
 
         return this.medicalRepository.save(medico)
     }
+
+    async remove(id: number): Promise<{message: string}>{
+        const result = await this.medicalRepository.delete(id);
+        if(result.affected === 0){
+            throw new NotFoundException(`Medico con el ID ${id} no encontrado`);
+
+        }
+        return{
+            message:  `El Medico con el ID ${id} ha sido eliminado.`
+        };
+
+    }
+
+
+
 }

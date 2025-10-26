@@ -2,8 +2,8 @@
 POST http://localhost:3000/produc-service
 Content-Type: application/json
 {
-    "prod_name": "Cita medica",
-    "prod_price": 140000,
+    "prod_name": "Medicina general",
+    "prod_price": 80000,
     "prod_type": "SERVICIO"
 }
 

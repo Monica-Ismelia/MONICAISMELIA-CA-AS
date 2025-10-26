@@ -1,4 +1,4 @@
-import { Body, ConflictException, Controller, Get, Post } from '@nestjs/common';
+import { Body, ConflictException, Controller, Delete, Get, Param, ParseIntPipe, Post } from '@nestjs/common';
 import { RolService } from './rol.service';
 import { CreateRolDto } from './rolDto/rol.dto';
 import { Rol } from './entities/rol_entities.entity';
@@ -30,6 +30,11 @@ export class RolController {
     @Get()
     async findAll(): Promise<Rol[]>{
         return this.Rolservice.findAll();
+    }
+
+    @Delete(':id')
+    remove(@Param('id', ParseIntPipe) id: number){
+        return this.Rolservice.remove(id);
     }
 
 }

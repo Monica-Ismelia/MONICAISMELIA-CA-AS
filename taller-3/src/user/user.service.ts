@@ -4,12 +4,16 @@ import { Repository } from 'typeorm';
 import { User } from './entities/user.entity';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
+import { Appointment } from 'src/appointment/entities/appointment.entity';
 
 @Injectable()
 export class UserService {
   constructor(
     @InjectRepository(User)
     private readonly userRepository: Repository<User>,
+
+    @InjectRepository(Appointment)
+    private readonly AppointmentRepository: Repository<Appointment>,
   ) {}
 
   // Crear un nuevo usuario
@@ -53,10 +57,26 @@ export class UserService {
   }
 
   // Eliminar usuario
-  async remove(id: number): Promise<void> {
+  async remove(id: number): Promise<{message: string}> {
+
+    const appointmentCount = await this.AppointmentRepository.count({
+      where: {Id_users: id},
+    });
+
+    if (appointmentCount > 0){
+      throw new ConflictException(
+        `El usuario con el Id ${id} no se puede eliminar devido a que está asignado a ${appointmentCount} citas medicas.`
+      );
+    }
+
+
     const result = await this.userRepository.delete(id);
     if (result.affected === 0) {
       throw new NotFoundException(`No se encontró el usuario con ID ${id}`);
     }
+
+    return{
+      message:  ` El usuario con el ID ${id} ha sido eliminado.`
+    };
   }
 }

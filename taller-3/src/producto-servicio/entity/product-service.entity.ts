@@ -27,7 +27,4 @@ export class ProductService{
     detabill: DetaBill[];
 
 
-    @OneToMany(()=>Appointment, (appointment)=>appointment.productservice) 
-    appointments: Appointment[];
-
 }

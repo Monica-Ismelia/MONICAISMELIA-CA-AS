@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Patch, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, ParseIntPipe, Patch, Post, Query } from '@nestjs/common';
 import { MedicalStaffService } from './medical-staff.service';
 import { createMedicoDto } from './medical_staffDTO/medicalStaff.dto';
 import { MedicalStaff } from './entities/medical-staff.entity';
@@ -30,6 +30,11 @@ export class MedicalStaffController {
         @Body() updateMedicoDto: updateMedicoDto,
     ): Promise<MedicalStaff>{
         return this.medicoService.update(id, updateMedicoDto);
+    }
+
+    @Delete(':id')
+    remove(@Param('id', ParseIntPipe) id: number){
+        return this.medicoService.remove(id);
     }
 
 }

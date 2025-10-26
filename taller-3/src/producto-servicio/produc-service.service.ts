@@ -45,7 +45,7 @@ export class ProductoServicioService{
     async remove(id: number): Promise<{message: string}>{
         const result = await this.ProductServiceRepository.delete(id);
         if (result.affected === 0){
-            throw new NotFoundException(`Product/service con Id ${id} no encontrado.`)
+            throw new NotFoundException(`Product/service con Id ${id} no encontrado.`);
         }
         return { 
             message: `El producto/servicio con el id ${id} ha si do elimidano.`

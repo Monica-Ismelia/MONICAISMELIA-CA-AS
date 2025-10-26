@@ -7,7 +7,8 @@ export class createMedicoDto{
     identification: string;
 
     @IsNotEmpty()
-    @IsPhoneNumber('CO', {message: 'El número de celular debe ser velido'})
+    @IsString()
+    @IsPhoneNumber('CO', {message: 'El número de celular debe ser valido'})
     @Length(1, 15)
     phone: string;
 

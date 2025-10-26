@@ -3,11 +3,11 @@ POST http://localhost:3000/users
 Content-Type: application/json
 
 {
-  "firstName": "Emilhy",
-  "lastName": "Ariza",
-  "email": "emily@gmail.com",
-  "password": "1234321",
-  "Id_rol": 2
+  "firstName": "Santiago",
+  "lastName": "zuñiga",
+  "email": "ziñiga5@gmail.com",
+  "password": "abc156",
+  "Id_rol": 6
 }
 
 
@@ -30,5 +30,5 @@ Content-Type: application/json
 }
 
 ### 🔴 Eliminar un usuario existente
-DELETE http://localhost:3000/users/1
+DELETE http://localhost:3000/users/7
 
