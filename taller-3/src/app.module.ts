@@ -21,7 +21,7 @@ import { ProductServiceModule } from './product-service/product-service.module';
       host: 'localhost', // o la dirección de tu servidor de base de datos
       port: 5432, //
       username: 'postgres',
-      password: 'Moni1981', // aqui  va  la  contraseña de la base  de  datos
+      password: '', // aqui  va  la  contraseña de la base  de  datos
       database: 'veterinary_clinic',// nombre de la base de datos
       entities: [__dirname + '/**/*.entity{.ts,.js}'], // ruta a las entidades
       synchronize: true, // no usar en producción
