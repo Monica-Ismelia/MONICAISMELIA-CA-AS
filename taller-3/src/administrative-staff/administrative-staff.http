@@ -2,13 +2,14 @@
 POST http://localhost:3000/administrative-staff
 Content-Type: application/json
 {
-  "userId": 1, // Referencia al ID del usuario asociado
-  "identification": "1092847563",// Número de identificación
-  "phone": "3001234567",// Número de teléfono
-  "startDate": "2025-10-18" //debe estar en formato YYYY-MM-DD
+  "userId": 1, 
+  "identification": "1092855563",
+  "phone": "3001234457",
+  "startDate": "2025-10-15"
 }
 ### 🟢 Obtener todo el personal administrativo
 GET http://localhost:3000/administrative-staff  
+
 
 ### 🟢 Obtener un personal administrativo por ID
 GET http://localhost:3000/administrative-staff/1
@@ -18,9 +19,9 @@ PUT http://localhost:3000/administrative-staff/1
 Content-Type: application/json
 
 {
-  "userId": 1, 
+  "userId": 2, 
   "identification": "1092847563",
-  "phone": "3001234567",
+  "phone": "3001234568",
   "startDate": "2025-10-18"
 }
 ### 🔴 Eliminar un personal administrativo existente

@@ -1,11 +1,20 @@
 import { Bill } from '../../bill/entity/bill.entity';
 import { Pet } from '../../pet/entities/pet.entity';
 import { Rol } from '../../rol/entities/rol_entities.entity';
-import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, ManyToOne, JoinColumn, OneToMany } from 'typeorm';
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  CreateDateColumn,
+  UpdateDateColumn,
+  ManyToOne,
+  JoinColumn,
+  OneToMany,
+} from 'typeorm';
 
 @Entity('client_owners')
 export class ClientOwner {
-  @PrimaryGeneratedColumn()
+  @PrimaryGeneratedColumn({ name: 'Id_client' }) // 👈 nombre fijo de la columna principal
   Id_client: number;
 
   @Column()
@@ -20,19 +29,19 @@ export class ClientOwner {
   @Column({ nullable: true })
   phone: string;
 
-  @ManyToOne(() => Rol, (rol)=> rol.clientOwners)
+  @ManyToOne(() => Rol, (rol) => rol.clientOwners)
   @JoinColumn({ name: 'id_rol' })
-  rol:Rol;
+  rol: Rol;
 
-  @OneToMany(()=> Pet, (pet)=>pet.client)
+  @OneToMany(() => Pet, (pet) => pet.client)
   pets: Pet[];
+
+  @OneToMany(() => Bill, (bill) => bill.client)
+  bills: Bill[];
 
   @CreateDateColumn({ name: 'created_at' })
   createdAt: Date;
 
   @UpdateDateColumn({ name: 'updated_at' })
   updatedAt: Date;
-
-  @OneToMany(()=>Bill, (bill)=> bill.client)
-  bills: Bill[];
 }

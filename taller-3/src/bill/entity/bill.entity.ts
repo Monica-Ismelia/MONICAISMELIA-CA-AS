@@ -1,37 +1,33 @@
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, OneToOne, OneToMany, JoinColumn, CreateDateColumn } from 'typeorm';
+import { Appointment } from '../../appointment/entities/appointment.entity';
+import { ClientOwner } from '../../client-owner/entities/client-owner.entity';
+import { DetaBill } from '../../detabill/entities/detabill.entity';
 
-import { Appointment } from "../../appointment/entities/appointment.entity";
-import { ClientOwner } from "../../client-owner/entities/client-owner.entity";
-import { DetaBill } from "../../detabill/entities/detabill.entity";
-import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, OneToMany, OneToOne, PrimaryGeneratedColumn } from "typeorm";
+@Entity('bill')
+export class Bill {
+  @PrimaryGeneratedColumn({ name: 'Id_bill' })
+  Id_bill: number;
 
-@Entity ('bill')
-export class Bill{
+  @Column({ type: 'date' })
+  fac_date: string;
 
-    @PrimaryGeneratedColumn()
-    Id_bill: number;
+  @Column({ type: 'decimal', precision: 10, scale: 2 })
+  fac_total: number;
 
-    @Column({type: 'date'})
-    fac_date: string;
+  @Column()
+  Id_client: number;
 
-    @Column({type: 'decimal', precision: 10, scale: 2})
-    fac_total: number;
+  @ManyToOne(() => ClientOwner, (clientOwner) => clientOwner.bills)
+  @JoinColumn({ name: 'Id_client', referencedColumnName: 'Id_client' })
+  client: ClientOwner;
 
-    @Column()
-    Id_client: number;
+  @OneToOne(() => Appointment, (appointment) => appointment.bill)
+  @JoinColumn()
+  appointment: Appointment;
 
-    @ManyToOne(()=> ClientOwner, (clientOwner) =>clientOwner.bills )
-    @JoinColumn({name: 'Id_client',
-        referencedColumnName: 'Id_client'
-    })
-    client: ClientOwner;
+  @OneToMany(() => DetaBill, (detabill) => detabill.bill)
+  detabill: DetaBill[];
 
-    @OneToOne(()=> Appointment, (appointment)=> appointment.bill)
-    appointment: Appointment;
-
-    @OneToMany(()=> DetaBill, (detabill)=>detabill.bill)
-    detabill: DetaBill[];
-
-    @CreateDateColumn({name: 'created_at'})
-    createdAt: Date;
-
+  @CreateDateColumn({ name: 'created_at' })
+  createdAt: Date;
 }

@@ -2,7 +2,7 @@ import { IsNumber, IsString, IsOptional } from 'class-validator';
 
 export class CreateClientOwnerDto {
   @IsNumber()
-  clientId: number;
+Id_client: number;
 
   @IsString()
   firstName: string;

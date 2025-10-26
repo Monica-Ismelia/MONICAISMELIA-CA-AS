@@ -3,12 +3,12 @@ POST http://localhost:3000/pets
 Content-Type: application/json
 
 {
-  "name": "Luna",
-  "species": "Gato",
-  "breed": "Siamés",
-  "sex": "F",
-  "weight": 4.2,
-  "clientId": 1
+  "name": "Bunny",
+  "species": "Rabbit",
+  "breed": "Netherland Dwarf",
+  "sex": "Female",
+  "weight": 2.3,
+  "Id_client": 1
 }
 
 ### 🟢 Obtener todas las mascotas

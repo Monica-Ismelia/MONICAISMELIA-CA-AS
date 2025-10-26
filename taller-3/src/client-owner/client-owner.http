@@ -4,11 +4,11 @@ POST http://localhost:3000/client-owners
 Content-Type: application/json
 
 {
-  "clientId": 1,
-  "firstName": "Ana",
-  "lastName": "Gómez",
-  "email": "ana@example.com",
-  "phone": "3001234567"
+  "Id_client": 3,
+  "firstName": "Maria",
+  "lastName": "Mendez",
+  "email": "maria@example.com",
+  "phone": "3001234000"
 }
 
 

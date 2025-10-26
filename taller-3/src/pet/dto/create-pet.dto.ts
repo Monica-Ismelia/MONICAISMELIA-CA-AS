@@ -21,5 +21,5 @@ export class CreatePetDto {
   observations?: string;
 
   @IsNumber()
-  clientId: number;
+  Id_client: number;
 }

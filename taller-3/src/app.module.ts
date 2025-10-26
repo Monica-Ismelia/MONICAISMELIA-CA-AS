@@ -10,8 +10,8 @@ import { SpecialtyModule } from './specialty/specialty.module';
 import { RolModule } from './rol/rol.module';
 import { MedicalHistoryModule } from './medical-history/medical-history.module';
 import { BillModule } from './bill/bill.module';
-import { ProductoServicioModule } from './producto-servicio/produc-service.module';
-import { DetabillModule } from './detabill/detabill.module';
+import { DetaBillModule } from './detabill/detabill.module';
+import { ProductServiceModule } from './product-service/product-service.module';
 
 
 @Module({
@@ -21,7 +21,7 @@ import { DetabillModule } from './detabill/detabill.module';
       host: 'localhost', // o la dirección de tu servidor de base de datos
       port: 5432, //
       username: 'postgres',
-      password: '1947', // aqui  va  la  contraseña de la base  de  datos
+      password: 'Moni1981', // aqui  va  la  contraseña de la base  de  datos
       database: 'veterinary_clinic',// nombre de la base de datos
       entities: [__dirname + '/**/*.entity{.ts,.js}'], // ruta a las entidades
       synchronize: true, // no usar en producción
@@ -36,8 +36,8 @@ import { DetabillModule } from './detabill/detabill.module';
     RolModule,
     MedicalHistoryModule,
     BillModule,
-    ProductoServicioModule,
-    DetabillModule, // 
+    ProductServiceModule,
+    DetaBillModule,
   ],
 
 })
