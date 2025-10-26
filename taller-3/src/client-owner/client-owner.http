@@ -1,0 +1,35 @@
+
+### 🟡 Crear un nuevo cliente
+POST http://localhost:3000/client-owners
+Content-Type: application/json
+
+{
+<<<<<<< HEAD
+  "firstName": "Emily",
+  "lastName": "Ariza",
+  "email": "emiarizza@gmail.com",
+  "phone": "335475098"
+
+}
+
+
+### 🟢 Obtener todos los clientes
+GET http://localhost:3000/client-owners
+
+### 🟢 Obtener un cliente por ID
+GET http://localhost:3000/client-owners/1
+
+### 🔵 Actualizar un cliente existente
+PUT http://localhost:3000/client-owners/1
+Content-Type: application/json
+
+{
+  "name": "Juan Pérez",
+  "email": "juan@example.com",
+  "phone": "987654321",
+  "address": "Avenida Siempre Viva 742"
+}
+
+### 🔴 Eliminar un cliente existente
+DELETE http://localhost:3000/client-owners/1
+

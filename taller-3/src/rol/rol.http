@@ -1,0 +1,10 @@
+POST http://localhost:3000/rol
+Content-Type: application/json
+{
+    "rol_nombre": "Veterinario"
+
+}
+
+GET  http://localhost:3000/rol
+
+DELETE http://localhost:3000/rol/2

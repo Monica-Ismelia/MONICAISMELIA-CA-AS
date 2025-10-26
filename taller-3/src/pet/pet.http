@@ -1,0 +1,31 @@
+### 🟡 Crear una nueva mascota
+POST http://localhost:3000/pets
+Content-Type: application/json
+
+{
+  "name": "Matias",
+  "species": "Perro",
+  "breed": "Pincher",
+  "sex": "M",
+  "weight": 5.6,
+  "Id_client": 2
+
+}
+
+### 🟢 Obtener todas las mascotas
+GET http://localhost:3000/pets
+
+### 🟢 Obtener una mascota por ID
+GET http://localhost:3000/pets/3
+
+### 🔵 Actualizar una mascota existente
+PUT http://localhost:3000/pets/3
+Content-Type: application/json
+
+{
+  "observations": "Perro loco muerde"
+}
+
+### 🔴 Eliminar una mascota existente
+DELETE http://localhost:3000/pets/3
+
