@@ -8,7 +8,7 @@ export const AppDataSource = new DataSource({
   host: 'localhost',
   port: 5432, 
   username: 'postgres',
-  password: 'Moni1981', // Tu contraseña
+  password: '', // Tu contraseña
   database: 'veterinary_clinic', // Tu base de datos
   
   // Rutas necesarias para que el CLI encuentre entidades y migraciones
