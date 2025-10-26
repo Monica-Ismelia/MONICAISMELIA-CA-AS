@@ -70,8 +70,9 @@ export class UserService {
     }
 
 
-    const result = await this.userRepository.delete(id);
-    if (result.affected === 0) {
+    const resultado = await this.userRepository.delete(id);
+
+    if (resultado.affected === 0) {
       throw new NotFoundException(`No se encontró el usuario con ID ${id}`);
     }
 

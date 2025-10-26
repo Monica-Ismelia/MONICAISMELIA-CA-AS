@@ -4,13 +4,11 @@ Content-Type: application/json
 
 {
   "firstName": "Santiago",
-  "lastName": "zuñiga",
-  "email": "ziñiga5@gmail.com",
+  "lastName": "Zuñiga",
+  "email": "zuniga5@gmail.com",
   "password": "abc156",
-  "Id_rol": 6
-
+  "Id_rol": 1
 }
-
 
 ### 🟢 Obtener todos los usuarios
 GET http://localhost:3000/users

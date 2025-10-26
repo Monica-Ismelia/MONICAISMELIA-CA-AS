@@ -1,4 +1,3 @@
-
 import {
   Entity,
   PrimaryGeneratedColumn,
@@ -15,9 +14,7 @@ import { Bill } from "../../bill/entity/bill.entity";
 import { Pet } from "../../pet/entities/pet.entity";
 import { User } from "../../user/entities/user.entity";
 import { MedicalHistory } from "../../medical-history/entities/medical-history.entity";
-import { ProductService } from "../../producto-servicio/entity/product-service.entity";
-
-
+import { ProductService } from "../../product-service/entity/product-service.entity";
 
 @Entity("appointments")
 export class Appointment {
@@ -80,12 +77,10 @@ export class Appointment {
   )
   medicalHistory: MedicalHistory[];
 
-
-
   @Column()
-  id_product_service: number;
+  Id_product_service: number;
 
-
+  @ManyToOne(() => ProductService, (productservice) => productservice.appointments)
   @JoinColumn({
     name: "Id_product_service",
     referencedColumnName: "Id_product_service",

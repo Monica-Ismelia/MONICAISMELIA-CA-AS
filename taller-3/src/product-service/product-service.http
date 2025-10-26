@@ -3,7 +3,7 @@ POST http://localhost:3000/product-service
 Content-Type: application/json
 
 {
-  "name": "Hospitalizacion",
+  "name": "Urgencia",
   "price": 50000,
   "type": "SERVICIO"
 }

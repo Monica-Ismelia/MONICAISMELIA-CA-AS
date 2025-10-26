@@ -5,7 +5,7 @@ import { Appointment } from 'src/appointment/entities/appointment.entity';
 
 @Entity('product_service')
 export class ProductService {
-  @PrimaryGeneratedColumn({ name: 'id_product_service' })
+  @PrimaryGeneratedColumn({ name: 'Id_product_service' })
  Id_product_service: number;
 
   @Column({ name: 'name' })

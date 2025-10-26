@@ -9,11 +9,10 @@ Content-Type: application/json
   "time": "10:00",
   "reason": "Medicina general",
   "value": 50000,
-  "Id_users": 10, 
-  "Id_pet": 3,
-
-  "Id_product_service": 7, 
-  "detail_type": "Baño"
+  "Id_users": 2,
+  "Id_pet": 2,
+  "Id_product_service": 5,
+  "detail_type": "Consulta general"
 }
 ### 🟢 Obtener todas las citas
 GET http://localhost:3000/appointments   
