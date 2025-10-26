@@ -1,34 +1,29 @@
-import { Bill } from "../../bill/entity/bill.entity";
-import { ProductService } from "../../producto-servicio/entity/product-service.entity";
-import {Column, Entity, JoinColumn, ManyToMany, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, JoinColumn } from 'typeorm';
+import { Bill } from '../../bill/entity/bill.entity';
+import { ProductService } from '../../product-service/entity/product-service.entity';
 
-@Entity ('detabill')
-export class DetaBill{
-    @PrimaryGeneratedColumn()
-    Id_detabill: number;
+@Entity('detabill')
+export class DetaBill {
+  @PrimaryGeneratedColumn({ name: 'Id_detabill' })
+  Id_detabill: number;
 
-    @Column({type: 'decimal', precision: 10, scale: 2})
-    det_precio: number;
+  @Column()
+  Id_bill: number;
 
-    @Column({type: 'int'})
-    det_amount: number;
+  @Column()
+  Id_product_service: number;
 
-    @Column() 
-    Id_bill: number;
+  @Column({ type: 'decimal', precision: 10, scale: 2 })
+  price: number;
 
-    @ManyToOne(()=> Bill, (bill)=>bill.detabill)
-    @JoinColumn({name:'Id_bill',
-        referencedColumnName: 'Id_bill' //para referenciar el campo Id de la tabla factura
-    })
-    bill: Bill;
+  @Column({ type: 'int' })
+  quantity: number;
 
-    @Column() 
-    Id_product_service: number;
+  @ManyToOne(() => Bill, (bill) => bill.detabill)
+  @JoinColumn({ name: 'Id_bill', referencedColumnName: 'Id_bill' })
+  bill: Bill;
 
-    @ManyToOne(()=> ProductService, (producservice)=> producservice.detabill)
-    @JoinColumn({name: 'Id_product_service', 
-        referencedColumnName: 'Id_product_service' //para referenciar el campo Id de la tabla producto servicio
-    })
-    productservice: ProductService;
-
+  @ManyToOne(() => ProductService, (productService) => productService.detabill)
+  @JoinColumn({ name: 'Id_product_service', referencedColumnName: 'Id_product_service' })
+  productservice: ProductService;
 }

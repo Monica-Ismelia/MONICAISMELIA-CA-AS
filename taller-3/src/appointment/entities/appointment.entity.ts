@@ -1,3 +1,4 @@
+
 import {
   Entity,
   PrimaryGeneratedColumn,
@@ -15,6 +16,8 @@ import { Pet } from "../../pet/entities/pet.entity";
 import { User } from "../../user/entities/user.entity";
 import { MedicalHistory } from "../../medical-history/entities/medical-history.entity";
 import { ProductService } from "../../producto-servicio/entity/product-service.entity";
+
+
 
 @Entity("appointments")
 export class Appointment {
@@ -76,6 +79,11 @@ export class Appointment {
     (medicalhistory) => medicalhistory.appointment
   )
   medicalHistory: MedicalHistory[];
+
+
+
+  @Column()
+  id_product_service: number;
 
 
   @JoinColumn({

@@ -1,9 +1,12 @@
+import { DetaBillService } from './detabill.service';
+import { DetaBillController } from './detabill.controller';
+import { DetaBill } from './entities/detabill.entity';
 import { Module } from '@nestjs/common';
-import { DetabillController } from './detabill.controller';
-import { DetabillService } from './detabill.service';
+import { TypeOrmModule } from '@nestjs/typeorm';
 
 @Module({
-  controllers: [DetabillController],
-  providers: [DetabillService]
+  imports: [TypeOrmModule.forFeature([DetaBill])],
+  providers: [DetaBillService],
+  controllers: [DetaBillController],
 })
-export class DetabillModule {}
+export class DetaBillModule {}
