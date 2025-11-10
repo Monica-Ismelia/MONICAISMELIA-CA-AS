@@ -1,0 +1,14 @@
+### crear un nuevo producto o  servicio
+POST http://localhost:3000/product-service   
+Content-Type: application/json
+
+{
+  "name": "Urgencia",
+  "price": 50000,
+  "type": "SERVICIO"
+}
+### visualiza los  productos y  servicios 
+GET http://localhost:3000/product-service
+
+
+

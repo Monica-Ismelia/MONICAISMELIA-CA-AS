@@ -1,0 +1,49 @@
+☕ Sistema de Recompensas por Lectura en Biblioteca Escolar 
+
+📝 DESCRIPCIÓN DEL PROBLEMA:
+Una biblioteca escolar desea motivar a sus usuarios (estudiantes, docentes y visitantes) a leer más libros cada mes. Para ello, implementa un sistema de recompensas basado en puntos.
+
+Cada vez que un usuario termina un libro, lo registra en el sistema. Según su tipo de usuario, recibe una cantidad diferente de puntos por libro leído:
+- Estudiante: 10 puntos por libro
+- Docente: 8 puntos por libro
+- Visitante: 5 puntos por libro
+
+Además, si el usuario acumula 50 puntos o más, recibe una  recompensa especial: "Medalla de Lector". Si no alcanza esa meta, recibe un mensaje motivacional: "Sigue leyendo para ganar recompensas".
+
+🔀 Reglas en el control de flujo
+
+1. Verificar el tipo de usuario:
+   - Si es ESTUDIANTE, recibe 10 puntos por libro.
+   - Si es DOCENTE, recibe 8 puntos por libro.
+   - Si es VISITANTE, recibe 5 puntos por libro.
+
+2. Calcular el total de puntos:
+   - Cada libro leído suma puntos según el tipo de usuario.
+   - Se debe usar un bucle (for) para simular el registro de cada libro.
+
+3. Asignar recompensa:
+   - Si el total de puntos es ≥ 50 → Recibe: "Medalla de Lector".
+   - Si es < 50 → Recibe mensaje motivacional.
+
+4. Entregar un resumen final al usuario con:
+   - Tipo de usuario.
+   - Número de libros leídos.
+   - Puntos totales.
+   - Recompensa obtenida.
+   - Mensaje final.
+
+⌨️ ENTRADAS (inputs):
+- tipoEstudiante (String) → "ESTUDIANTE", "DOCENTE", "VISITANTE"
+- librosLeidos (Number) → cantidad de libros leídos en el mes
+
+⚙️ PROCESOS:
+- Usar switch para asignar puntos por libro según tipo de usuario.
+- Usar bucle for para sumar puntos por cada libro leído.
+- Usar if/else para verificar si alcanza 50 puntos y asignar recompensa.
+
+🧾 SALIDAS (outputs):
+- Mensaje de bienvenida.
+- Registro de cada libro leído (con puntos asignados).
+- Total de puntos acumulados.
+- Recompensa obtenida ("Medalla de Lector" o mensaje motivacional).
+- Resumen final con todos los datos del usuario.

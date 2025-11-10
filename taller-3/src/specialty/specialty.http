@@ -1,0 +1,13 @@
+POST http://localhost:3000/specialty
+content-type: application/json
+{
+    "specialty_name": "Oftamologo"
+}
+
+GET http://localhost:3000/specialty
+
+PATCH http://localhost:3000/specialty/4
+Content-Type: application/json
+{
+    "specialty_name": "Medicina general"
+}
